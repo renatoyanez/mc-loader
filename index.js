@@ -4,9 +4,13 @@ let sizeLimit = 100;
 let startTimer;
 
 // Select buttons
-const startButton = document.querySelector("#start-b");
-const stopButton = document.querySelector("#stop-b");
-const resetButton = document.querySelector("#reset-b");
+const startButton = document.getElementById("start-b");
+const stopButton = document.getElementById("stop-b");
+const resetButton = document.getElementById("reset-b");
+
+// Other UI elements
+const percentage = document.getElementById("percentage");
+const loader = document.getElementById("loader");
 
 // Event listeners:
 // Start timer for loader
@@ -45,8 +49,8 @@ resetButton.addEventListener("click", () => {
 
 // Update the display view
 const updateView = () => {
-  document.getElementById("percentage").innerText = `${barSize}%`;
-  document.getElementById("loader").style.width = `${barSize}px`;
+  percentage.innerText = `${barSize}%`;
+  loader.style.width = `${barSize}px`;
 };
 
 /***
