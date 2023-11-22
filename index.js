@@ -1,11 +1,15 @@
-var barSize = 0;
-var sizeLimit = 100;
-var startTimer;
+// Initialize usefull variables
+let barSize = 0;
+let sizeLimit = 100;
+let startTimer;
 
+// Select buttons
 const startButton = document.querySelector("#start-b");
 const stopButton = document.querySelector("#stop-b");
 const resetButton = document.querySelector("#reset-b");
 
+// Event listeners:
+// Start timer for loader
 startButton.addEventListener("click", () => {
   startTimer = setInterval(() => {
     if (barSize >= sizeLimit) {
@@ -21,6 +25,7 @@ startButton.addEventListener("click", () => {
   }, 100);
 });
 
+// Stop loader
 stopButton.addEventListener("click", () => {
   clearInterval(startTimer);
   startButton.disabled = false;
@@ -28,6 +33,7 @@ stopButton.addEventListener("click", () => {
   updateView();
 });
 
+// Reset loader
 resetButton.addEventListener("click", () => {
   clearInterval(startTimer);
   barSize = 0;
@@ -37,11 +43,14 @@ resetButton.addEventListener("click", () => {
   updateView();
 });
 
-function updateView() {
+// Update the display view
+const updateView = () => {
   document.getElementById("percentage").innerText = `${barSize}%`;
   document.getElementById("loader").style.width = `${barSize}px`;
-}
+};
+
 /***
+ * INSTRUCTIONS
  * Overview:
 Creating a loading bar that every 0.1 seconds increases 1% of completion. It should have a start button, a reset button, and a stop button. It should have a text label indicating the percentage rate.
  
